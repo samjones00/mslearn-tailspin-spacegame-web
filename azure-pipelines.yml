@@ -51,7 +51,7 @@ trigger:
       command: 'test'
       arguments: '--no-build --configuration $(buildConfiguration)'
       publishTestResults: true
-      project: '**/*.Tests.csproj'
+      projects: '**/*.Tests.csproj'
   
   - task: DotNetCoreCLI@2
     displayName: 'Publish the project - $(buildConfiguration)'
@@ -65,3 +65,4 @@ trigger:
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'
     condition: succeeded()
+  
