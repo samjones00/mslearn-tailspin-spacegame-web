@@ -58,11 +58,11 @@ steps:
     command: 'test'
     arguments: '--no-build --configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Build.SourcesDirectory)/TestResults/Coverage/'
     publishTestResults: true
-     projects: '**/*.Tests.csproj'
+    projects: '**/*.Tests.csproj'
   
 - script: |
      reportgenerator -reports:$(Build.SourcesDirectory)/**/coverage.cobertura.xml -targetdir:$(Build.SourcesDirectory)/CodeCoverage -reporttypes:HtmlInline_AzurePipelines
-   displayName: 'Create code coverage report'
+    displayName: 'Create code coverage report'
   
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage report'
